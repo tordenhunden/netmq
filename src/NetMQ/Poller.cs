@@ -316,6 +316,14 @@ namespace NetMQ
         }
 
         /// <summary>
+        /// Poll till Cancel or CancelAndJoin is called or cancellationtoken is cancelled. This is a blocking method.
+        /// </summary>
+        public void PollTillCancelled(CancellationToken token)
+        {
+            PollWhile(() => m_cancel == 0 && !token.IsCancellationRequested);
+        }
+
+        /// <summary>
         /// Poll till Cancel or CancelAndJoin is called. This is a blocking method.
         /// </summary>
         public void PollTillCancelled()
