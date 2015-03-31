@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using NetMQ;
+using NetMQ.PubSub.Transport;
 using Newtonsoft.Json;
-using RtuBroker.ZeroMq.Transport;
 
 namespace RtuBtoker.JsonSerialization
 {

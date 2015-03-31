@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RtuBroker.Test.Publisher
+namespace RtuBroker.Test.Messages
 {
     public class Msg
     {

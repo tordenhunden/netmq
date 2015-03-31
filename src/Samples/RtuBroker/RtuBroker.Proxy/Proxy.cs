@@ -2,8 +2,8 @@
 using System.Configuration;
 using System.Threading;
 using NetMQ;
-using RtuBroker.ZeroMq.SeqNoValidated;
-using RtuBroker.ZeroMq.Transport;
+using NetMQ.PubSub.SeqNoValidated;
+using NetMQ.PubSub.Transport;
 using RtuBtoker.JsonSerialization;
 
 namespace RtuBroker.Test.Proxy

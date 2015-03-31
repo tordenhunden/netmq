@@ -1,6 +1,6 @@
 using System;
 
-namespace RtuBroker.ZeroMq.Transport
+namespace NetMQ.PubSub.Transport
 {
     class LambdaDisposable : IDisposable
     {

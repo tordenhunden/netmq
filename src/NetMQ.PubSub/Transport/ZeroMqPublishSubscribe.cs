@@ -3,9 +3,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using NetMQ;
 
-namespace RtuBroker.ZeroMq.Transport
+namespace NetMQ.PubSub.Transport
 {
     public static class ZeroMqPublishSubscribe
     {

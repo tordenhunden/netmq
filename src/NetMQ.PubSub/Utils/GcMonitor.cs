@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace RtuBroker.ZeroMq
+namespace NetMQ.PubSub.Utils
 {
     public sealed class GcMonitor
     {

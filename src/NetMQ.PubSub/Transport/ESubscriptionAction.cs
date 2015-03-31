@@ -1,4 +1,4 @@
-namespace RtuBroker.ZeroMq.Transport
+namespace NetMQ.PubSub.Transport
 {
     public enum ESubscriptionAction
     {

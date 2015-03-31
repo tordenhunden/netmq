@@ -3,10 +3,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using NetMQ;
-using RtuBroker.ZeroMq.SeqNoValidated;
-using RtuBroker.ZeroMq.Transport;
+using NetMQ.PubSub.SeqNoValidated;
 using RtuBtoker.JsonSerialization;
-using Msg = RtuBroker.Test.Publisher.Msg;
+using Msg = RtuBroker.Test.Messages.Msg;
 
 namespace RtuBroker.Test.Subscriber
 {

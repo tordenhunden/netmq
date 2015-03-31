@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using RtuBroker.ZeroMq.Transport;
-using NetMQ;
+using NetMQ.PubSub.Transport;
 
-namespace RtuBroker.ZeroMq.SeqNoValidated
+namespace NetMQ.PubSub.SeqNoValidated
 {
     public static class SeqNoValidatedPublishSubscribe
     {

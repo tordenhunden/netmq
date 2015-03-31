@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace RtuBroker.ZeroMq
+namespace NetMQ.PubSub.Utils
 {
     static class ByteArrayFormat
     {

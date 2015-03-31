@@ -5,9 +5,10 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using NetMQ;
-using RtuBroker.ZeroMq.SeqNoValidated;
-using RtuBroker.ZeroMq.Transport;
+using NetMQ.PubSub.SeqNoValidated;
+using NetMQ.PubSub.Transport;
 using RtuBtoker.JsonSerialization;
+using Msg = RtuBroker.Test.Messages.Msg;
 
 namespace RtuBroker.Test.Publisher
 {

@@ -7,8 +7,8 @@
     <ProjectGuid>{8C072903-4422-478C-8ADD-A1336BACCE7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RtuBroker.ZeroMq</RootNamespace>
-    <AssemblyName>RtuBroker.ZeroMq</AssemblyName>
+    <RootNamespace>NetMQ.PubSub</RootNamespace>
+    <AssemblyName>NetMQ.PubSub</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

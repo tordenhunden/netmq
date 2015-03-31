@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RtuBroker.ZeroMq.Transport
+namespace NetMQ.PubSub.Transport
 {
     public class TransportMessage
     {
