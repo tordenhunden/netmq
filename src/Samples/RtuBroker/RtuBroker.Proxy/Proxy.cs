@@ -4,6 +4,7 @@ using System.Threading;
 using NetMQ;
 using RtuBroker.ZeroMq.SeqNoValidated;
 using RtuBroker.ZeroMq.Transport;
+using RtuBtoker.JsonSerialization;
 
 namespace RtuBroker.Test.Proxy
 {
@@ -25,7 +26,7 @@ namespace RtuBroker.Test.Proxy
                     m => m,
                     m =>
                     {
-                        var msg = JsonZeroMqSerialization.ReadTransportMessage(m);
+                        var msg = JsonSerialization.ReadTransportMessage(m);
                         int exp;
                         var isValid = seqVal.IsValid(msg.Topic, msg.SequenceNumber, out exp);
                         switch (isValid)

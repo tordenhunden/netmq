@@ -53,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\NetMQ.PubSub\NetMQ.PubSub.csproj">
+      <Project>{8c072903-4422-478c-8add-a1336bacce7c}</Project>
+      <Name>NetMQ.PubSub</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\NetMQ\NetMQ.csproj">
       <Project>{82934bac-07fb-41ac-ae59-46fee6026a40}</Project>
       <Name>NetMQ</Name>
@@ -61,9 +65,9 @@
       <Project>{e35605c9-2a06-4ab8-8401-ac99cc7403b4}</Project>
       <Name>RtuBroker.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RtuBroker.NetMq\RtuBroker.NetMq.csproj">
-      <Project>{8c072903-4422-478c-8add-a1336bacce7c}</Project>
-      <Name>RtuBroker.ZeroMq</Name>
+    <ProjectReference Include="..\RtuBtoker.JsonSerialization\RtuBtoker.JsonSerialization.csproj">
+      <Project>{2AF59916-F703-4E3A-BAD6-FBF6305449BB}</Project>
+      <Name>RtuBtoker.JsonSerialization</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

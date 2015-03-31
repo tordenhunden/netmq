@@ -7,6 +7,7 @@ using System.Threading;
 using NetMQ;
 using RtuBroker.ZeroMq.SeqNoValidated;
 using RtuBroker.ZeroMq.Transport;
+using RtuBtoker.JsonSerialization;
 
 namespace RtuBroker.Test.Publisher
 {
@@ -30,7 +31,7 @@ namespace RtuBroker.Test.Publisher
             using (SeqNoValidatedPublishSubscribe.StartPublisher(
                 NetMQContext.Create(),
                 ConfigurationManager.AppSettings["endpoint"],
-                JsonZeroMqSerialization.WriteTransportMessage,
+                JsonSerialization.WriteTransportMessage,
                 (m, seqNo) => new TransportMessage(m.Topic, seqNo, m.Headers, m.Body),
                 m => m.Topic,
                 Console.WriteLine,

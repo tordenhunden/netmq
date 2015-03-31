@@ -5,6 +5,7 @@ using System.Text;
 using NetMQ;
 using RtuBroker.ZeroMq.SeqNoValidated;
 using RtuBroker.ZeroMq.Transport;
+using RtuBtoker.JsonSerialization;
 using Msg = RtuBroker.Test.Publisher.Msg;
 
 namespace RtuBroker.Test.Subscriber
@@ -24,7 +25,7 @@ namespace RtuBroker.Test.Subscriber
                 context,
                 ConfigurationManager.AppSettings["endpoint"],
                 new string[] {},
-                JsonZeroMqSerialization.ReadTransportMessage,
+                JsonSerialization.ReadTransportMessage,
                 m => new Msg(m.Topic, m.Headers, m.Body),
                 Console.WriteLine, //crash
                 (msg, e) => Console.WriteLine(msg + " -- " + e), //userhandler

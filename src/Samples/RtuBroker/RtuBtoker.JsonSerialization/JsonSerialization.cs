@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using NetMQ;
 using Newtonsoft.Json;
+using RtuBroker.ZeroMq.Transport;
 
-namespace RtuBroker.ZeroMq.Transport
+namespace RtuBtoker.JsonSerialization
 {
     
 
-    public static class JsonZeroMqSerialization
+    public static class JsonSerialization
     {
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings()
         {

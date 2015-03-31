@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RtuBroker")]
+[assembly: AssemblyTitle("RtuBtoker.JsonSerialization")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RtuBroker")]
+[assembly: AssemblyProduct("RtuBtoker.JsonSerialization")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("841df5fd-5a4b-4bff-846c-f1c22bd77a0e")]
+[assembly: Guid("214eb7dc-b076-4d43-80d5-f50ee8b55c1c")]
 
 // Version information for an assembly consists of the following four values:
 //

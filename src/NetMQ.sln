@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ", "NetMQ\NetMQ.csproj", "{82934BAC-07FB-41AC-AE59-46FEE6026A40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Performance", "Performance", "{1D49A4C6-C03C-4F72-9A27-42C8E5219BBA}"
@@ -144,10 +146,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDPServiceDiscoveryClientEx
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RtuBroker", "RtuBroker", "{A7047719-5C38-4BF6-8C85-741C254E938F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker", "Samples\RtuBroker\RtuBroker\RtuBroker.csproj", "{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker.NetMq", "Samples\RtuBroker\RtuBroker.NetMq\RtuBroker.NetMq.csproj", "{8C072903-4422-478C-8ADD-A1336BACCE7C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker.Messages", "Samples\RtuBroker\RtuBroker.Messages\RtuBroker.Messages.csproj", "{E35605C9-2A06-4AB8-8401-AC99CC7403B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker.Proxy", "Samples\RtuBroker\RtuBroker.Proxy\RtuBroker.Proxy.csproj", "{2A6B431E-411E-4D3A-BC0B-6DF6BE4743C9}"
@@ -156,47 +154,44 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker.Publisher", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBroker.Subscriber", "Samples\RtuBroker\RtuBroker.Subscriber\RtuBroker.Subscriber.csproj", "{18055CE1-38B1-4BCA-B810-08990208EFBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMQ.PubSub", "NetMQ.PubSub\NetMQ.PubSub.csproj", "{8C072903-4422-478C-8ADD-A1336BACCE7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RtuBtoker.JsonSerialization", "Samples\RtuBroker\RtuBtoker.JsonSerialization\RtuBtoker.JsonSerialization.csproj", "{2AF59916-F703-4E3A-BAD6-FBF6305449BB}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
+		SccNumberOfProjects = 5
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://teamfoundation:8080/tfs/main
-		SccProjectUniqueName0 = Samples\\RtuBroker\\RtuBroker\\RtuBroker.csproj
+		SccProjectUniqueName0 = Samples\\RtuBroker\\RtuBroker.Messages\\RtuBroker.Messages.csproj
 		SccProjectTopLevelParentUniqueName0 = NetMQ.sln
-		SccProjectName0 = Samples/RtuBroker/RtuBroker
+		SccProjectName0 = Samples/RtuBroker/RtuBroker.Messages
 		SccAuxPath0 = http://teamfoundation:8080/tfs/main
-		SccLocalPath0 = Samples\\RtuBroker\\RtuBroker
+		SccLocalPath0 = Samples\\RtuBroker\\RtuBroker.Messages
 		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = Samples\\RtuBroker\\RtuBroker.NetMq\\RtuBroker.NetMq.csproj
+		SccProjectUniqueName1 = Samples\\RtuBroker\\RtuBroker.Proxy\\RtuBroker.Proxy.csproj
 		SccProjectTopLevelParentUniqueName1 = NetMQ.sln
-		SccProjectName1 = Samples/RtuBroker/RtuBroker.NetMq
+		SccProjectName1 = Samples/RtuBroker/RtuBroker.Proxy
 		SccAuxPath1 = http://teamfoundation:8080/tfs/main
-		SccLocalPath1 = Samples\\RtuBroker\\RtuBroker.NetMq
+		SccLocalPath1 = Samples\\RtuBroker\\RtuBroker.Proxy
 		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = Samples\\RtuBroker\\RtuBroker.Messages\\RtuBroker.Messages.csproj
+		SccProjectUniqueName2 = Samples\\RtuBroker\\RtuBroker.Publisher\\RtuBroker.Publisher.csproj
 		SccProjectTopLevelParentUniqueName2 = NetMQ.sln
-		SccProjectName2 = Samples/RtuBroker/RtuBroker.Messages
+		SccProjectName2 = Samples/RtuBroker/RtuBroker.Publisher
 		SccAuxPath2 = http://teamfoundation:8080/tfs/main
-		SccLocalPath2 = Samples\\RtuBroker\\RtuBroker.Messages
+		SccLocalPath2 = Samples\\RtuBroker\\RtuBroker.Publisher
 		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = Samples\\RtuBroker\\RtuBroker.Proxy\\RtuBroker.Proxy.csproj
+		SccProjectUniqueName3 = Samples\\RtuBroker\\RtuBroker.Subscriber\\RtuBroker.Subscriber.csproj
 		SccProjectTopLevelParentUniqueName3 = NetMQ.sln
-		SccProjectName3 = Samples/RtuBroker/RtuBroker.Proxy
+		SccProjectName3 = Samples/RtuBroker/RtuBroker.Subscriber
 		SccAuxPath3 = http://teamfoundation:8080/tfs/main
-		SccLocalPath3 = Samples\\RtuBroker\\RtuBroker.Proxy
+		SccLocalPath3 = Samples\\RtuBroker\\RtuBroker.Subscriber
 		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName4 = Samples\\RtuBroker\\RtuBroker.Publisher\\RtuBroker.Publisher.csproj
-		SccProjectTopLevelParentUniqueName4 = NetMQ.sln
-		SccProjectName4 = Samples/RtuBroker/RtuBroker.Publisher
+		SccProjectUniqueName4 = NetMQ.PubSub\\NetMQ.PubSub.csproj
+		SccProjectName4 = NetMQ.PubSub
 		SccAuxPath4 = http://teamfoundation:8080/tfs/main
-		SccLocalPath4 = Samples\\RtuBroker\\RtuBroker.Publisher
+		SccLocalPath4 = NetMQ.PubSub
 		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName5 = Samples\\RtuBroker\\RtuBroker.Subscriber\\RtuBroker.Subscriber.csproj
-		SccProjectTopLevelParentUniqueName5 = NetMQ.sln
-		SccProjectName5 = Samples/RtuBroker/RtuBroker.Subscriber
-		SccAuxPath5 = http://teamfoundation:8080/tfs/main
-		SccLocalPath5 = Samples\\RtuBroker\\RtuBroker.Subscriber
-		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -642,30 +637,6 @@ Global
 		{9D3ECC09-8001-4282-8F46-414C3FFBE4A7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9D3ECC09-8001-4282-8F46-414C3FFBE4A7}.Release|x64.ActiveCfg = Release|Any CPU
 		{9D3ECC09-8001-4282-8F46-414C3FFBE4A7}.Release|x86.ActiveCfg = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|x64.ActiveCfg = Release|Any CPU
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F}.Release|x86.ActiveCfg = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|x64.ActiveCfg = Release|Any CPU
-		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|x86.ActiveCfg = Release|Any CPU
 		{E35605C9-2A06-4AB8-8401-AC99CC7403B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E35605C9-2A06-4AB8-8401-AC99CC7403B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E35605C9-2A06-4AB8-8401-AC99CC7403B4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -714,6 +685,30 @@ Global
 		{18055CE1-38B1-4BCA-B810-08990208EFBA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{18055CE1-38B1-4BCA-B810-08990208EFBA}.Release|x64.ActiveCfg = Release|Any CPU
 		{18055CE1-38B1-4BCA-B810-08990208EFBA}.Release|x86.ActiveCfg = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|x64.ActiveCfg = Release|Any CPU
+		{8C072903-4422-478C-8ADD-A1336BACCE7C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -766,11 +761,10 @@ Global
 		{110BC076-1D16-4593-B0C0-62F0A67ED264} = {813D3184-CAE9-4EA5-AD8F-CF0B5E890E79}
 		{BEDD69FB-36D7-4E11-9306-FB4BF97F356E} = {813D3184-CAE9-4EA5-AD8F-CF0B5E890E79}
 		{9D3ECC09-8001-4282-8F46-414C3FFBE4A7} = {813D3184-CAE9-4EA5-AD8F-CF0B5E890E79}
-		{28060B89-A0DE-44CB-9316-BD0C9BB78F6F} = {A7047719-5C38-4BF6-8C85-741C254E938F}
-		{8C072903-4422-478C-8ADD-A1336BACCE7C} = {A7047719-5C38-4BF6-8C85-741C254E938F}
 		{E35605C9-2A06-4AB8-8401-AC99CC7403B4} = {A7047719-5C38-4BF6-8C85-741C254E938F}
 		{2A6B431E-411E-4D3A-BC0B-6DF6BE4743C9} = {A7047719-5C38-4BF6-8C85-741C254E938F}
 		{10845948-0064-436C-85FE-C606AB1A5CC5} = {A7047719-5C38-4BF6-8C85-741C254E938F}
 		{18055CE1-38B1-4BCA-B810-08990208EFBA} = {A7047719-5C38-4BF6-8C85-741C254E938F}
+		{2AF59916-F703-4E3A-BAD6-FBF6305449BB} = {A7047719-5C38-4BF6-8C85-741C254E938F}
 	EndGlobalSection
 EndGlobal
