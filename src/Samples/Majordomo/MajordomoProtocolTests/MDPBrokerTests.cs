@@ -11,6 +11,7 @@ using NUnit.Framework;
 
 namespace MajordomoTests
 {
+#pragma warning disable 4014
     [TestFixture]
     public class MDPBrokerTests
     {
@@ -92,7 +93,9 @@ namespace MajordomoTests
                 // collect all logging information from broker
                 broker.LogInfoReady += (s, e) => log.Add(e.Info);
                 // start broker session
+
                 broker.Run(cts.Token);
+
                 // start echo task
                 Task.Run(() => EchoWorker(workerSession), cts.Token);
                 // wait for everything to happen
@@ -716,4 +719,5 @@ namespace MajordomoTests
             Assert.That(reply.First.ConvertToString(), Is.EqualTo(_PAYLOAD + " - HELLO"));
         }
     }
+#pragma warning restore 4014
 }
