@@ -316,11 +316,11 @@ namespace NetMQ
         }
 
         /// <summary>
-        /// Poll till Cancel or CancelAndJoin is called or cancellationtoken is cancelled. This is a blocking method.
+        /// Poll till Cancel or CancelAndJoin is called or pred is false. This is a blocking method.
         /// </summary>
-        public void PollTillCancelled(CancellationToken token)
+        public void PollTillCancelledAnd(Func<bool> predicate)
         {
-            PollWhile(() => m_cancel == 0 && !token.IsCancellationRequested);
+            PollWhile(() => m_cancel == 0 && predicate());
         }
 
         /// <summary>

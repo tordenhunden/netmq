@@ -144,7 +144,9 @@ namespace NetMQ.SimpleTests
 
             for (int i = 0; i < Iterations; i++)
             {
+#pragma warning disable 618
                 socket.Receive(ref msg, SendReceiveOptions.None);
+#pragma warning restore 618
 
                 socket.Send(ref msg, SendReceiveOptions.None);
             }

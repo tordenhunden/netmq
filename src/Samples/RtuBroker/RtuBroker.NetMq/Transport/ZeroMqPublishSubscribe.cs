@@ -43,14 +43,14 @@ namespace RtuBroker.ZeroMq.Transport
 
                 s.ReceiveReady += (sender, a) =>
                 {
-                    var m = a.Socket.ReceiveMessage();
+                    var m = a.Socket.ReceiveMultipartMessage();
                     p.SendMessage(m);
                     l.SendMessage(m);
                 };
 
                 p.ReceiveReady += (sender, a) =>
                 {
-                    var m = a.Socket.ReceiveMessage();
+                    var m = a.Socket.ReceiveMultipartMessage();
                     s.SendMessage(m);
 
                     try
@@ -68,7 +68,7 @@ namespace RtuBroker.ZeroMq.Transport
                     }
                 };
 
-                poller.PollTillCancelled(termSig.Token);
+                poller.PollTillCancelledAnd(() => !termSig.Token.IsCancellationRequested);
                 termSig.Cancel();
             }
         }
@@ -89,9 +89,9 @@ namespace RtuBroker.ZeroMq.Transport
                     var poller = new Poller(l);
                     l.Connect(listenerEndpoint);
 
-                    l.ReceiveReady += (sender, args) =>
+                    l.ReceiveReady += (sender, a) =>
                     {
-                        var m = args.Socket.ReceiveMessage();
+                        var m = a.Socket.ReceiveMultipartMessage();
                         try
                         {
                             handleMessage(readMessage(m));
@@ -102,7 +102,7 @@ namespace RtuBroker.ZeroMq.Transport
                         }
                     };
 
-                    poller.PollTillCancelled(termSig);
+                    poller.PollTillCancelledAnd(() => !termSig.IsCancellationRequested);
                 }
             }
             catch (Exception e)
@@ -227,7 +227,7 @@ namespace RtuBroker.ZeroMq.Transport
 
                 subscriptionsProxy.ReceiveReady += (sender, a) =>
                 {
-                    var zmsg = a.Socket.ReceiveMessage();
+                    var zmsg = a.Socket.ReceiveMultipartMessage();
                     var action = (ESubscriptionAction)zmsg.Pop().ConvertToInt32();
                     var topic = zmsg.Pop().ConvertToString(Encoding.UTF8);
 
@@ -245,7 +245,7 @@ namespace RtuBroker.ZeroMq.Transport
 
                 subscriber.ReceiveReady += (sender, a) =>
                 {
-                    var zmsg = a.Socket.ReceiveMessage();
+                    var zmsg = a.Socket.ReceiveMultipartMessage();
                     try
                     {
                         handler(readMessage(zmsg));
@@ -256,7 +256,7 @@ namespace RtuBroker.ZeroMq.Transport
                     }
                 };
 
-                poller.PollTillCancelled(termSig);
+                poller.PollTillCancelledAnd(() => !termSig.IsCancellationRequested);
             }
         }
 
