@@ -10,19 +10,18 @@ namespace NetMQ.PubSub.SeqNoValidated
             NetMQContext context, 
             string endpoint,
             Action<NetMQMessage, TransportMessage> writeMessage,
-            Func<T,int,TransportMessage> createTransportMessage,
-            Func<T,string> projectTopic,
+            Func<T,byte[]> serialize,
             Action<NetMQException> zeroMqError, 
-            out Action<T> publish)
+            out Action<string,Dictionary<string,object>,T> publish)
         {
             var seqNoGen = new TopicSpecificSequenceNumberGenerator();
 
             Action<TransportMessage> innerPublish;
             var pub = ZeroMqPublishSubscribe.StartPublisher(context, endpoint, writeMessage, zeroMqError, out innerPublish);
-            publish = msg =>
+            publish = (topic,headers,msg) =>
             {
-                var seqNo = seqNoGen.Gen(projectTopic(msg));
-                innerPublish(createTransportMessage(msg,seqNo));
+                var seqNo = seqNoGen.Gen(topic);
+                innerPublish(new TransportMessage(topic,seqNo,headers,serialize(msg)));
             };
             return pub;
         }
@@ -36,8 +35,8 @@ namespace NetMQ.PubSub.SeqNoValidated
             Action<Exception> crash,
             Action<NetMQMessage, Exception> userHandlerException,
             Action<BadValue<int>, T> receivedWrongSeqNo,
-            Action<T> receivedNotSubscribedMessage,
-            Action<T> handler,
+            Action<string,T> receivedNotSubscribedMessage,
+            Action<string,Dictionary<string,object>,T> handler,
             out Action<string> subscribe,
             out Action<string> unsubscribe)
         {
@@ -51,13 +50,13 @@ namespace NetMQ.PubSub.SeqNoValidated
                 switch (seqNoVal.IsValid(m.Topic, m.SequenceNumber, out exp))
                 {
                     case EValid.Valid:
-                        handler(tM);
+                        handler(m.Topic,m.Headers,tM);
                         break;
                     case EValid.BadSequenceNumber:
                         receivedWrongSeqNo(new BadValue<int>(exp, m.SequenceNumber), tM);
                         break;
                     default:
-                        receivedNotSubscribedMessage(tM);
+                        receivedNotSubscribedMessage(m.Topic, tM);
                         break;
                 }
             };
