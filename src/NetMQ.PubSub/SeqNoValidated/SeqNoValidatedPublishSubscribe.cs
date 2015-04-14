@@ -12,7 +12,7 @@ namespace NetMQ.PubSub.SeqNoValidated
             Action<NetMQMessage, TransportMessage> writeMessage,
             Func<T,byte[]> serialize,
             Action<NetMQException> zeroMqError, 
-            out Action<string,Dictionary<string,object>,T> publish)
+            out Action<string,Dictionary<string,string>,T> publish)
         {
             var seqNoGen = new TopicSpecificSequenceNumberGenerator();
 
@@ -36,7 +36,7 @@ namespace NetMQ.PubSub.SeqNoValidated
             Action<NetMQMessage, Exception> userHandlerException,
             Action<BadValue<int>, T> receivedWrongSeqNo,
             Action<string,T> receivedNotSubscribedMessage,
-            Action<string,Dictionary<string,object>,T> handler,
+            Action<string,Dictionary<string,string>,T> handler,
             out Action<string> subscribe,
             out Action<string> unsubscribe)
         {

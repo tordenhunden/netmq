@@ -4,9 +4,9 @@ using System.Text;
 using NetMQ.PubSub.Transport;
 using Newtonsoft.Json;
 
-namespace NetMQ.UnitTests
+namespace NetMQ.PubSub.Json
 {
-    static class JsonSerialization
+    public static class JsonSerialization
     {
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings()
         {
@@ -15,7 +15,8 @@ namespace NetMQ.UnitTests
 
         public static void WriteTransportMessage(NetMQMessage zmsg, TransportMessage msg)
         {
-            var headers = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(msg.Headers, JsonSettings));
+            var json = JsonConvert.SerializeObject(msg.Headers, JsonSettings);
+            var headers = Encoding.UTF8.GetBytes(json);
             zmsg.Push(msg.Body);
             zmsg.Push(headers);
             zmsg.Push(msg.SequenceNumber);
@@ -33,7 +34,7 @@ namespace NetMQ.UnitTests
             //convert / copy
             var topic = topicFrame.ConvertToString(Encoding.UTF8);
             var sequenceNumber = seqNoFrame.ConvertToInt32();
-            var headers = JsonConvert.DeserializeObject<Dictionary<string, object>>(headerFrame.ConvertToString(Encoding.UTF8));
+            var headers = JsonConvert.DeserializeObject<Dictionary<string, string>>(headerFrame.ConvertToString(Encoding.UTF8));
             var body = new byte[bodyFrame.MessageSize];
             Array.Copy(bodyFrame.Buffer, body, bodyFrame.MessageSize);
 

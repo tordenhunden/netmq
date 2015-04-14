@@ -59,11 +59,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="IntegrationTests.cs" />
-    <Compile Include="JsonSerialization.cs" />
     <Compile Include="SequenceNumbersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NetMQ.PubSub.Json\NetMQ.PubSub.Json.csproj">
+      <Project>{72d4f3d8-eaa6-490e-b2a6-253648face6a}</Project>
+      <Name>NetMQ.PubSub.Json</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetMQ.PubSub\NetMQ.PubSub.csproj">
       <Project>{8c072903-4422-478c-8add-a1336bacce7c}</Project>
       <Name>NetMQ.PubSub</Name>

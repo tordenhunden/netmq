@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NetMQ.PubSub.Json;
 using NetMQ.PubSub.SeqNoValidated;
 
 namespace NetMQ.UnitTests
@@ -15,9 +16,8 @@ namespace NetMQ.UnitTests
         public void M()
         {
             var ctx = NetMQContext.Create();
-            var gen = new TopicSpecificSequenceNumberGenerator();
 
-            Action<string, Dictionary<string, object>, string> publish;
+            Action<string, Dictionary<string, string>, string> publish;
             SeqNoValidatedPublishSubscribe.StartPublisher(
                 ctx,
                 "tcp://localhost:111",
@@ -37,9 +37,9 @@ namespace NetMQ.UnitTests
                 new string[]{},
                 JsonSerialization.ReadTransportMessage,
                 msg => Encoding.ASCII.GetString(msg.Body),
-                exception => Assert.Fail(),
-                (message, exception) => Assert.Fail(),
-                (value, s) => Assert.Fail("Wwrong seq no"),
+                exception => Assert.Fail("crash"),
+                (message, exception) => Assert.Fail("userhandler exception"),
+                (value, s) => Assert.Fail("Wrong seq no"),
                 (topic,s) => Assert.Fail("Received unsubscribed msg"),
                 (topic,headers,s) => countDownEvent.Signal(),
                 out subscribe,
@@ -47,7 +47,7 @@ namespace NetMQ.UnitTests
 
             subscribe("topic");
 
-            var emptyheaders = new Dictionary<string, object>();
+            var emptyheaders = new Dictionary<string, string>();
 
             publish("topic", emptyheaders, "message1");
             publish("topic", emptyheaders, "message2");
@@ -60,7 +60,6 @@ namespace NetMQ.UnitTests
                 Assert.Fail("Timed out");
             }
             //received 5 events
-            
         }
     }
 }
